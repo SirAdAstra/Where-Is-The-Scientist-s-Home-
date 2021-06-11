@@ -56,15 +56,7 @@ public class InputController : MonoBehaviour
                 DisableClouds();
                 switch(rayHit.transform.tag)
                 {
-                    case "Note":
-                    {
-                        pos.enabled = true;
-                        inventoryController.ItemRecieved(noteData);
-                        audioSource.PlayOneShot(noteAudio);
-                        Destroy(note);
-                        close = Time.time + 3f;
-                        break;
-                    }
+           
 
                     case "Card":
                     {
@@ -120,7 +112,7 @@ public class InputController : MonoBehaviour
                         if(openedDoor)
                         {
                             Debug.Log("Finish!");
-                            SceneManager.LoadScene(1);
+                            SceneManager.LoadScene(6);
                         }
                         else
                             Debug.Log("Open door fist");
@@ -154,22 +146,14 @@ public class InputController : MonoBehaviour
                         break;
                     }
 
-                    case "Poster":
-                    {
-                        pos.enabled = true;
-                        inventoryController.ItemRecieved(posterData);
-                        audioSource.PlayOneShot(noteAudio);
-                        Destroy(poster);
-                        close = Time.time + 3f;
-                        break;
-                    }
+                   
 
                     case "InsertedKey":
                     {
                         if(crystalInserted && shardInserted && liquidBool)
                         {
                             audioSource.PlayOneShot(openDoorAudio);
-                            SceneManager.LoadScene(2);
+                            SceneManager.LoadScene(7);
                             Debug.Log("Finish!");
                         }
                         else
@@ -180,15 +164,7 @@ public class InputController : MonoBehaviour
                         break;
                     }
 
-                    case "PosterLvl3":
-                    {
-                        pos.enabled = true;
-                        inventoryController.ItemRecieved(posterLvl3Data);
-                        audioSource.PlayOneShot(noteAudio);
-                        Destroy(posterLvl3);
-                        close = Time.time + 3f;
-                        break;
-                    }
+                   
 
                     case "WireCutter":
                     {
@@ -216,6 +192,8 @@ public class InputController : MonoBehaviour
                         if (crystalInsertedLvl3 && wireBroken && repairedLvl3)
                         {
                             Debug.Log("Finish!");
+
+                            SceneManager.LoadScene(8);
                         }
                         else
                         {

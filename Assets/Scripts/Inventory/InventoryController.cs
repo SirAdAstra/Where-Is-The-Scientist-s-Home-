@@ -11,7 +11,7 @@ public class InventoryController : MonoBehaviour
     GraphicRaycaster m_Raycaster;
     public ItemData[] StartItems;
     public Transform slots;
-    public Image ItemImg;
+    public Image ItemImg,ItemNameBack,ItemDescriptionBack;
     public GameObject ItemVisual;
     public Text ItemName;
     public Text ItemDescription;
@@ -38,6 +38,17 @@ public class InventoryController : MonoBehaviour
             ItemName.text = item.Title;
             ItemDescription.text = item.Description;
             ItemImg.sprite = item.Icon;
+            if (ItemNameBack != null && ItemDescriptionBack != null)
+            {
+                ItemNameBack.enabled = true;
+                ItemDescriptionBack.enabled = true;
+            }
+        }
+        else
+            if (ItemNameBack != null && ItemDescriptionBack != null)
+        {
+            ItemNameBack.enabled = false;
+            ItemDescriptionBack.enabled = false;
         }
     }
 
